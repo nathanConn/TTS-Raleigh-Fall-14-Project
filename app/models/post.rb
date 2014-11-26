@@ -1,4 +1,4 @@
 class Post < ActiveRecord::Base
-	has_one :post
+  belongs_to :user
   has_many :comments	
 end
