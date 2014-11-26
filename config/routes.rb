@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   
   get 'users/:id' => 'users#show'
 
+  get 'about' => 'static_pages#about'
+
+  get 'home' => 'home#show'
+
+  get 'faqs' => 'static_pages#faqs'
+
  
 
   # The priority is based upon order of creation: first created -> highest priority.
