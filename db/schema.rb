@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20141124164122) do
     t.string   "post_id"
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "author"
