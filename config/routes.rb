@@ -4,14 +4,7 @@ Rails.application.routes.draw do
   
   get 'users/:id' => 'users#show'
 
-  get 'posts/view_post'
-
-  get 'posts/create_post'
-
-
-  root to: 'posts#index'
-  
-
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
