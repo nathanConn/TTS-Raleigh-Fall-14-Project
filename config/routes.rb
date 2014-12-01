@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   resources :posts
   
   get 'users/:id' => 'users#show'
+  get 'login' => 'static_pages#signup'
 
   get 'about' => 'static_pages#about'
 
   get 'home' => 'home#show'
 
   get 'faqs' => 'static_pages#faqs'
+
+  root 'home#show'
 
  
 
