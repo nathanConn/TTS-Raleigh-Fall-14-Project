@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts
   
   get 'users/:id' => 'users#show'
+  
+  get 'login' => 'static_pages#signup'
 
   get 'about' => 'static_pages#about'
 
