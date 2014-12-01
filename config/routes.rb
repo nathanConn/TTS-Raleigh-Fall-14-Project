@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get 'faqs' => 'static_pages#faqs'
 
+  get 'all' => 'posts#index'
+
+  root 'home#show'
+
  
 
   # The priority is based upon order of creation: first created -> highest priority.
