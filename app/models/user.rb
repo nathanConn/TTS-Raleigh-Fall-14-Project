@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+	has_one :user
+    has_many :posts
+
 	before_save {self.email = email.downcase}
 	validates :first_name, presence: true, length: { maximum: 50 }
 	validates :last_name, presence: true, length: { maximum: 50 }
@@ -8,4 +12,5 @@ class User < ActiveRecord::Base
 			  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 8}
+
 end
