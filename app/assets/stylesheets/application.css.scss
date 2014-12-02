@@ -15,6 +15,7 @@
  */
 
 
+
 #error_explanation {
 	color:red;
 	ul {
@@ -29,3 +30,6 @@
 		color: $state-danger-text;
 	}
 }
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
