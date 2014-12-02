@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 	SecureRandom.urlsafe_base64
 	end
 
-	def forget(user)
+	def forget
 		update_attribute(:remember_digest, nil)
 	end
 
