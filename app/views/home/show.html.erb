@@ -4,30 +4,16 @@
       <p>Pri ex probo vitae philosophia, eu nec diam appetere, eam adhuc postea at. Mei ea putent putant molestie, ex saperet dolores nec. Fugit utamur adversarium vis in. Singulis petentium has ei, at sed oratio suscipiantur. Saperet albucius efficiendi vix et, duo erant probatus te. Exerci fabellas est ut, in dolore audire eam.</p>
     
     <!-- Recent topics ref'd from all_posts and date/time key -->
-    <ul id="recent-topics-list">
-    	<li>Topic 1</li>
-    	<li>Topic 2</li>
-    	<li>Topic 3</li>
-    	<li>Topic 4</li>
-    	<li>Topic 5</li>
-   </div>
+    <div class="recent-topics-list">
+      <h2 class="headline">Recent Posts</h2>
+        <% @posts.each do |post| %>
+        <div class="floatLeft"><%= link_to post_path(post) %>
+        </div>
+        <h3 class="headline-smaller-font"><%= link_to post.title, post %></h3>
+        <h5> <%= link_to post.author, author %></h5>
+
+        <% end %>
+    </div>
   </div>
 </div>
 
-<div class="login-and-reg">
-
-  <form>  
-    <h3>Sign In</h3>
-    Email:<br>
-    <input type="text" name="email">
-    <br>
-    Password:<br>
-    <input type="text" name="lastname">
-    <br></br>
-    <input type="submit" value="Submit">
-  </form>
-
-    <br></br>
-    <input type="submit" value="Register">
-
-</div>
