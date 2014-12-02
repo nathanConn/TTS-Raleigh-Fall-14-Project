@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141126143149) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +25,6 @@ ActiveRecord::Schema.define(version: 20141126143149) do
     t.string   "post_id"
     t.string   "body"
   end
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -43,8 +42,13 @@ ActiveRecord::Schema.define(version: 20141126143149) do
     t.boolean  "administrator"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+    t.string   "password_digest"
+    t.string   "remember_digest"
+=======
     t.string   "username"
     t.string   "password"
+>>>>>>> master
   end
 
 end
