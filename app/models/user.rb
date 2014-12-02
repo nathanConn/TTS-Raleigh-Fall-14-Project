@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	attr_accessor :remember_token
 	before_save {self.email = email.downcase}
 	validates :first_name, presence: true, length: { maximum: 50 }
 	validates :last_name, presence: true, length: { maximum: 50 }
@@ -8,4 +9,31 @@ class User < ActiveRecord::Base
 			  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 8}
+
+	def User.digest(string)
+		cost = ActiveModel::SecurePassword.min_cost ? Bcrypt::Engine::MIN_COST :
+													  Bcrypt::Engine.cost
+	    Bcrypt::Password.create(string, cost: cost)
+	    end
+
+	def User.new_token
+	SecureRandom.urlsafe_base64
+	end
+
+	def forget(user)
+		forget(current_user)
+		session.delete(:user_id)
+		@current_user = nil
+	end
+
+	def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  	end
+
+  	def authenticated?(remember_token)
+  	return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+
 end

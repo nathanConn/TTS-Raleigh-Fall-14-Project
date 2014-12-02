@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <%= link_to 'codEZ', 'home', class: 'navbar-brand' %>
+                 <%= link_to 'codEZ', root_path, class: 'navbar-brand' %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,19 +35,19 @@
                    
                     <li>
                       <!--   <a href="static_pages/services">Our Beers</a> -->
-                         <%= link_to 'All Posts', 'all' , class: 'navbar-brand' %>
+                         <%= link_to 'All Posts', all_path , class: 'navbar-brand' %>
 
                     </li>
                      <li>
                       <!--   <a href="static_pages/services">Our Beers</a> -->
-                        <%= link_to 'FAQs', 'faqs', class: 'navbar-brand' %>
+                        <%= link_to 'FAQs', faqs_path, class: 'navbar-brand' %>
                      
 
                     </li>
-                    <li><%= link_to 'About', 'about', class: 'navbar-brand' %>
+                    <li><%= link_to 'About', about_path, class: 'navbar-brand' %>
                     </li>
                     <li>
-						<%= link_to 'login', 'login', class: 'navbar-brand' %>
+						<%= link_to 'register', 'users/new', class: 'navbar-brand' %>
                    </li>  
 
               </ul>              
@@ -59,12 +59,21 @@
     <!-- Page Content -->
   
         <div class="container">
-	
+          <% if logged_in? %>
+          <div style="float: left;"><%= link_to "Profile", current_user %>
+          <%= link_to "Log out", logout_path, method: "delete" %></div>
+<% else %>
+
+<div style="float: left;"><%= link_to "Log in", login_path %></div>
+<% end %>
+
      <!-- Search bar -->
       <!-- Search bar -->
  <form style= "float: right; display: block;" id="searchThis" action="/search" style="display: inline;" method="get"><input onfocus="if(this.value==this.defaultValue)this.value='';" value="Search codEZ" type="text" id="searchBox" onblur="if(this.value=='')this.value=this.defaultValue;" vinput="" name="q" /> <input id="searchButton" value="Go" type="submit" /></form></br></br>
   
-   
+   <% flash.each do |message_type, message| %>
+   <div class=" alert alert-<%= message_type %>"><%= message %></div>
+   <% end %>
 
 <%= yield %>
 </div>
