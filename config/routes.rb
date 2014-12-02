@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+
+  root 'home#show'
   
-  resources :posts
   
-  get 'users/:id' => 'users#show'
   
-  get 'login' => 'static_pages#signup'
+  get 'register' => 'users#new'
 
   get 'about' => 'static_pages#about'
 
@@ -14,7 +14,14 @@ Rails.application.routes.draw do
 
   get 'all' => 'posts#index'
 
-  root 'home#show'
+  
+
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  resources :posts
+  resources :users
 
  
 
