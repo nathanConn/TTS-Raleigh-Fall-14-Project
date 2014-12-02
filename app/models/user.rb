@@ -43,6 +43,5 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
 
-=======
->>>>>>> master
+
 end
