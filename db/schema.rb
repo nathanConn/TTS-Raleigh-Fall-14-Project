@@ -24,9 +24,6 @@ ActiveRecord::Schema.define(version: 20141126143149) do
     t.string   "body"
   end
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "author"
@@ -43,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141126143149) do
     t.boolean  "administrator"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
     t.string   "username"
     t.string   "password"
   end
