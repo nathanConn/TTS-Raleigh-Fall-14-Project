@@ -8,9 +8,8 @@
       <h2 class="headline">Recent Topics</h2>
         <% @posts.each do |post| %>
         
-        <h3 class="headline-smaller-font"><%= link_to post.title, post%> </h3>
-        <h5>Author: <%= link_to post.author, post %></h5>
-
+        <h3 class="headline-smaller-font"><%= link_to post.title, post %> </h3>
+        
         <% end %>
     </div>
   </div>
