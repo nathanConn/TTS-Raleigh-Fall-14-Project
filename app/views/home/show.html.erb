@@ -9,6 +9,7 @@
         <% @posts.each do |post| %>
         
         <h3 class="headline-smaller-font"><%= link_to post.title, post %> </h3>
+        <h6 class="sub-headline-smaller-font">Author: <%= link_to post.user.first_name, post.user %> </h6>
         
         <% end %>
     </div>
