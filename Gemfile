@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
+require 'bcrypt'
 gem 'bcrypt', '3.1.9'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
