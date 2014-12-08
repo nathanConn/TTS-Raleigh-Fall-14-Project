@@ -1,13 +1,16 @@
-require 'bcrypt'
+
 
 class User < ActiveRecord::Base
   
 	attr_accessor :remember_token, :activation_token, :reset_token
   	before_save   :downcase_email
     before_create :create_activation_digest
+    mount_uploader :picture, PictureUploader
+    validate  :picture_size
+
 
 	has_one :user
-    has_many :posts
+  has_many :posts
 
 
 	before_save {self.email = email.downcase}
@@ -18,13 +21,13 @@ class User < ActiveRecord::Base
 			  format: { with: VALID_EMAIL_REGEX },
 			  uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password, length: { minimum: 8}
+	validates :password, length: { minimum: 8}, allow_blank: true
 
 
 	def User.digest(string)
-		cost = ActiveModel::SecurePassword.min_cost ? Bcrypt::Engine::MIN_COST :
-													  Bcrypt::Engine.cost
-	    Bcrypt::Password.create(string, cost: cost)
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+													  BCrypt::Engine.cost
+	    BCrypt::Password.create(string, cost: cost)
 	    end
 
 	def User.new_token
@@ -73,6 +76,12 @@ class User < ActiveRecord::Base
 
 
     private
+
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 
     # Converts email to all lower-case.
     def downcase_email
