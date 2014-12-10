@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 
-    has_many :comments
+	acts_as_commentable
+
 	belongs_to :user
 
 end
