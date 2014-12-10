@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'home#show'
   
   
-  
   get 'register' => 'users#new'
 
   get 'about' => 'static_pages#about'
@@ -12,17 +11,14 @@ Rails.application.routes.draw do
 
   get 'faqs' => 'static_pages#faqs'
 
-  get 'all' => 'posts#index'
-
-
-  
-
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :posts
+  resources :posts 
   resources :users
+  resources :search
+  resources :comments 
 
  
 

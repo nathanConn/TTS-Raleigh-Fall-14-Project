@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 	attr_accessor :remember_token
 
 	has_one :user
-    has_many :posts
+    has_many :posts, dependent: :destroy
+    has_many :comments
 
 
 	before_save {self.email = email.downcase}

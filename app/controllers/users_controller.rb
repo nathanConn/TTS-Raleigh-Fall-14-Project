@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts.order("created_at desc").limit(99)
 	end
 
 	def user_index
-	@users = User.all
+		@users = User.all
 	end
 
 	def new 

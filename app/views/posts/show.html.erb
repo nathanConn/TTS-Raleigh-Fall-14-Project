@@ -2,18 +2,24 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%=  @post.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <textarea rows="10" cols="50" disabled="true">
   <%= @post.body %>
+</textarea>
 </p>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @post.body %>
-</p>
+<% if @post.comments.empty? %>
+	<%= render 'comment/form' %>
+
+<%= link_to 'Back', posts_path %>
+
+	<%else %>
+		<p>Hello
+	</p>
+	<% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
