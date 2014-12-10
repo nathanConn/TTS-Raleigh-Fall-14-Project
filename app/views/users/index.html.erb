@@ -1,8 +1,10 @@
-<h1>Hello, <%= @user.first_name %><h1>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
 
-	<ul>
-		<li>First name: <%= @user.first_name %></li>
-		<li>Last name: <%= @user.last_name %></li>
-		<li>Email address: <%= @user.email %></li>
-		<li>Administrator: <%= @user.administrator? %></li>
-	</ul>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= render @users %>
+    </li>
+  <% end %>
+</ul>

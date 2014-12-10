@@ -3,9 +3,11 @@ source 'https://rubygems.org'
 gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-require 'bcrypt'
-gem 'bcrypt', '3.1.9'
 
+gem 'bcrypt', '3.1.9'
+gem 'carrierwave',             '0.10.0'
+gem 'mini_magick',             '3.8.0'
+gem 'fog',                     '1.23.0'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
