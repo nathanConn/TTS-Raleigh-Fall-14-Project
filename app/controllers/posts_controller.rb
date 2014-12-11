@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.find(params[:id])
+    @comments = @post.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from( @post, current_user.id, "")
   end
 
   # GET /posts/new

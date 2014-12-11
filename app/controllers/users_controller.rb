@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts.order("created_at desc").limit(99)
 	end
-
 
 	def new 
 		@user = User.new

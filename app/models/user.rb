@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
     validate  :picture_size
 
 
-	has_one :user
-  has_many :posts
+	  has_one :user
+    has_many :posts, dependent: :destroy
+    has_many :comments
+
 
 
 	before_save {self.email = email.downcase}
