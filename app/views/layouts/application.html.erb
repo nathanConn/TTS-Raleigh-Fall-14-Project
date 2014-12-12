@@ -14,8 +14,14 @@
     <!-- Page Content -->
      <div class="container">
         <% if logged_in? %>
-          <div style="float: left;"><%= link_to "Profile", current_user %>
-          <%= link_to "Log out", logout_path, method: "delete" %></div>
+<ul class="list-inline">
+  <li role="presentation">Welcome, <%= current_user.first_name %>.</li>
+  <li role="presentation"><%= link_to "Profile", current_user %></li>
+  <li role="presentation"><%= link_to "Log out", logout_path, method: "delete" %></li>
+</ul>
+
+
+          
         <% else %>
             <div style="float: left;"><h5><%= link_to "Login", login_path %>
             Not registered? <%= link_to "Sign up", register_path %></h5>
