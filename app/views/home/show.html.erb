@@ -4,10 +4,12 @@
       <p>Pri ex probo vitae philosophia, eu nec diam appetere, eam adhuc postea at. Mei ea putent putant molestie, ex saperet dolores nec. Fugit utamur adversarium vis in. Singulis petentium has ei, at sed oratio suscipiantur. Saperet albucius efficiendi vix et, duo erant probatus te. Exerci fabellas est ut, in dolore audire eam.</p>
     
     <!-- Recent topics ref'd from all_posts and date/time key -->
+    
     <div class="recent-topics-list">
       <h2 class="headline">Recent Topics</h2>
         <% @posts.each do |post| %>
-        
+          <%= render partial: "users/picture", locals: {user: post.user} %>
+    
         <h3 class="headline-smaller-font"><%= link_to post.title, post %> </h3>
         <h6 class="sub-headline-smaller-font">Author: <%= link_to post.user.first_name, post.user %> </h6>
         
