@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
+ 
+ <h1><%=  @post.title %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%=  @post.title %>
-</p>
+ <div class="panel panel-primary">
+    
+  <div class="panel-body"><%= @post.body %>
+</div>
+    <div class="panel-body"><%= render partial: "users/picture", locals: {user: @post.user} %>
+      Posted by <%= link_to @post.user.username, @post.user %>
+    <%= time_ago_in_words(@post.created_at) %> ago.
+  </div>
+</div>
 
-<p>
-  <textarea rows="10" cols="50" disabled="true">
-  <%= @post.body %>
-</textarea>
-</p>
+
+  
+ 
 
 
+<h3>Reply to this topic</h3>
 <%=  render :partial => 'comments/form' %>
-<%=	 render @comments  %>
+
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
