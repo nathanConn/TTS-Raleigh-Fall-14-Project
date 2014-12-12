@@ -1,22 +1,30 @@
-<h1>Hello, <%= @user.first_name %><h1>
 
 
-<%= image_tag @user.picture.url if @user.picture? %>
-	<ul>
-		<li>First name: <%= @user.first_name %></li>
-		<li>Last name: <%= @user.last_name %></li>
-		<li>Email address: <%= @user.email %></li>
-		<li>Administrator: <%= @user.administrator? %></li>
-	</ul>
-
-
-	<h2 class="headline">Topics by this author: </h2>
-        <% @user.posts.each do |post| %>
-        
-        <h3 class="headline-smaller-font"><%= link_to post.title, post %> </h3>
-        
-        <% end %>
-
-        <%= button_to "New Post", new_post_path, :class => "btn btn-primary", :method => :get %>
   
 
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      
+        <ul class="list-group">
+       		<li><h1><%= @user.username %></h1>
+			</li>
+			<li> <%= image_tag @user.picture.url if @user.picture? %></li> 
+        	<li>Joined Codez <%= @user.created_at.strftime("%B %-d, %Y") %> </li>
+       		<li><%= link_to "Update profile", edit_user_path(current_user) %></li>
+       	</ul>
+
+   
+      
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3>Topic posts (<%= @user.posts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
+</div>
