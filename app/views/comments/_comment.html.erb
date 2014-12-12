@@ -2,13 +2,13 @@
 <div class="comment" id="<%= "comment-#{comment.id}" %>">
 	<thead>
 		<tr>
-			<th class="author">Author</th>
-				<td><%= comment.user.first_name %></td>
-			<th class="updated">Updated</th>
-				<td><%= comment.updated_at %></td>
-			<th class="body">Comment</th>
-				<td><%= comment.body %></td>
+			<td><%= comment.user.first_name %></td>
+			<td><%= comment.updated_at %></td>
+			<td><%= comment.body %></td>
 			<td><%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %></td>
+			<td><%= link_to "upvote", like_comment_path(comment), method: :put %></td>
+			<td><%= link_to "downvote", dislike_comment_path(comment), method: :put %></td>
+			<td><%= comment.score %></td>
 		</tr>
 	</thead>
 	<tbody>

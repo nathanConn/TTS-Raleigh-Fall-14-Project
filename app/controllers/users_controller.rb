@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 	before_action :correct_user,   only: [:edit, :update]
 	before_action :admin_user,     only: :destroy
 
+	acts_as_voter
+
 	def show
 		@user = User.find(params[:id])
 		@posts = @user.posts.order("created_at desc").limit(99)
