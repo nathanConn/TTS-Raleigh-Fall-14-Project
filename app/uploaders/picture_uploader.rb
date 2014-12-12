@@ -1,11 +1,13 @@
 # encoding: utf-8
+require 'carrierwave/processing/mini_magick'
 
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process :resize_to_fit => [100, 100]
+  process resize_to_fit: [300, 300]
+
 
   version :thumb do
-    process :resize_to_fit => [20,20]
+    process resize_to_limit: [0,10]
   end
 
 

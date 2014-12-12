@@ -18,7 +18,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a, u {
+	text-decoration: none !important;
+}
 
+a {
+	font-weight: bold;
+}
+
+#panel_footer  {
+	 vertical-align: bottom !important;
+}
+
+#panel_footer a {
+	 vertical-align: bottom !important;
+}
 
 html {
   overflow-y: scroll;

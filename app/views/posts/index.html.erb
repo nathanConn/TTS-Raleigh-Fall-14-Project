@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Topic</th>
-      <th>Question</th>
-      <th>Created</th>
+      <th>Body</th>
+      <th>Created by</th>
    
       
     </tr>
@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to post.title, post %></td>
         <td width="35%"><%= truncate(post.body, length: 150, omission: '... (continued)') %></td>
-        <td><%= time_ago_in_words(post.created_at) %> ago</td>
+        <td><%= link_to post.user.username, post.user %> <%= time_ago_in_words(post.created_at) %> ago</td>
         
         
         <td><%= link_to 'Show', post %></td>

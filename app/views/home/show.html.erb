@@ -18,7 +18,7 @@
   <div class="panel-footer"><%= truncate(post.body, length: 300, omission: '... (continued)') %>
 </div>
     <div class="panel-body"><%= render partial: "users/picture", locals: {user: post.user} %>
-      Posted by <%= link_to post.user.username, post.user %>
+      Created by <%= link_to post.user.username, post.user %>
     <%= time_ago_in_words(post.created_at) %> ago.
   </div>
 </div>
