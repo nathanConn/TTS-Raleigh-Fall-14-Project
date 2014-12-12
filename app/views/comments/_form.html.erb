@@ -1,9 +1,12 @@
-<div class="comment-form">
+<div class="comment-form"><h5>Comment:</h5>
 	<%= form_for (@comment) do |f| %>
 		<%= f.text_area :body,  rows: 7 %>
 		<%= f.hidden_field :commentable_id %>
 		<%= f.hidden_field :commentable_type %>
+
+		<p></p>
 		
 		<%= f.button :submit, :class => "btn btn-primary" %>
+
 	<% end %>
 </div>
