@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def homeshow
-   
     @posts =  Post.order("created_at desc").paginate(:page => params[:page], :per_page => 6)
   end
 
