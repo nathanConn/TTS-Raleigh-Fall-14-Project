@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   get 'password_resets/edit'
 
-  root 'home#show'
+  root 'posts#homeshow'
   
   
   get 'register' => 'users#new'
 
   get 'about' => 'static_pages#about'
 
-  get 'home' => 'home#show'
+  get 'home' => 'posts#homeshow'
 
   get 'faqs' => 'static_pages#faqs'
 

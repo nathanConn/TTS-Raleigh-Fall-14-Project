@@ -1,6 +1,10 @@
-<h1>All Posts</h1>
+<ul class="list-inline"><li><h1>All Topics</h1></li>
+  <li style="float: right;">
+    <%= button_to "Create topic", new_post_path, :class => "btn btn-primary", :method => :get %>
+  </li>
+</ul>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Topic</th>
@@ -10,9 +14,9 @@
       
     </tr>
   </thead>
-
+<% @posts.each do |post| %>
   <tbody>
-    <% @posts.each do |post| %>
+    
       <tr>
         <td><%= link_to post.title, post %></td>
         <td width="35%"><%= truncate(post.body, length: 150, omission: '... (continued)') %></td>
@@ -26,8 +30,6 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
 
-<br>
-
-<%= button_to "New Post", new_post_path, :class => "btn btn-primary", :method => :get %>
 
