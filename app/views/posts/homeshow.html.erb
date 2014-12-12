@@ -6,7 +6,7 @@
     
     <!-- Recent topics ref'd from all_posts and date/time key -->
     
-    <ul class="list-inline"><li><h1>All Topics</h1></li>
+    <ul class="list-inline"><li><h1>Recent Topics</h1></li>
   <li style="float: right;">
     <%= button_to "Create topic", new_post_path, :class => "btn btn-primary", :method => :get %>
   </li>
@@ -22,7 +22,7 @@
 </div>
     <div class="panel-body"><%= render partial: "users/picture", locals: {user: post.user} %>
       Created by <%= link_to post.user.username, post.user %>
-    <%= time_ago_in_words(post.created_at) %> ago.
+    <%= time_ago_in_words(post.created_at) %> ago. | 
   </div>
 </div>
         

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@posts = @user.posts.order("created_at desc").limit(99)
+		@posts = @user.posts.order("created_at desc").limit(99).paginate(page: params[:page])
 	end
 
 	def new 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@user = User.all
+		@users = User.paginate(page: params[:page])
 	end
 
 	def create
