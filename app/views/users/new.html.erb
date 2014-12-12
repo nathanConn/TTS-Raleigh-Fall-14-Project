@@ -5,24 +5,31 @@
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
      <ul style="list-style: none; !important">
-     <li> <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-    </li>
-
-    <li>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-</li>
-     <li> <%= f.label :email %>
-      <%= f.text_field :email %></li>
-
-   <li>   <%= f.label :password %>
-      <%= f.password_field :password %></li>
-
-    <li>  <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %></li>
-
-      <li><%= f.submit "Create my account", class: "btn btn-primary" %>
+     
+      <li>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </li>
+       <li> <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </li>
+      <li>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+       </li>
+       <li> 
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </li>
+      <li><%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
+      <li>
+        <%= f.label :password_confirmation, "Confirm password" %>
+        <%= f.password_field :password_confirmation %>
+      </li>
+      <li>
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
       </li>
     </ul>
     <% end %>

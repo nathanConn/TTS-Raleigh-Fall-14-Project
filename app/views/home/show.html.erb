@@ -1,17 +1,27 @@
 <div id="wrap">
    
    <div id="content">
-      <p>Pri ex probo vitae philosophia, eu nec diam appetere, eam adhuc postea at. Mei ea putent putant molestie, ex saperet dolores nec. Fugit utamur adversarium vis in. Singulis petentium has ei, at sed oratio suscipiantur. Saperet albucius efficiendi vix et, duo erant probatus te. Exerci fabellas est ut, in dolore audire eam.</p>
+      <p><strong>Welcome to Codez,</strong> a project app by Tech Talent South students, meant to discuss course topics.</p>
+
     
     <!-- Recent topics ref'd from all_posts and date/time key -->
     
     <div class="recent-topics-list">
-      <h2 class="headline">Recent Topics</h2>
+      <h1>Recent Topics</h1>
         <% @posts.each do |post| %>
-          <%= render partial: "users/picture", locals: {user: post.user} %>
+          
     
-        <h3 class="headline-smaller-font"><%= link_to post.title, post %> </h3>
-        <h6 class="sub-headline-smaller-font">Author: <%= link_to post.user.first_name, post.user %> </h6>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to post.title, post %></h3>
+  </div>
+  <div class="panel-footer"><%= post.body %>
+</div>
+    <div class="panel-body"><%= render partial: "users/picture", locals: {user: post.user} %>
+      Posted by <%= link_to post.user.username, post.user %>
+    <%= time_ago_in_words(post.created_at) %> ago.
+  </div>
+</div>
         
         <% end %>
     </div>
