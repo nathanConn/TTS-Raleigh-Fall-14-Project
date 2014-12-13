@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_action :correct_user,   only: [:edit, :update]
 	before_action :admin_user,     only: :destroy
 
-	acts_as_voter
+	
 
 	def show
 		@user = User.find(params[:id])
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:first_name, :last_name, :email, :password,
-									  :password_confirmation, :picture)
+									  :password_confirmation, :picture, :username)
 	end
  
 	def logged_in_user
