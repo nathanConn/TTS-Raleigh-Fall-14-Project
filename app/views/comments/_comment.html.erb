@@ -1,28 +1,10 @@
-<table class="table">
 <div class="comment" id="<%= "comment-#{comment.id}" %>">
-
-	<thead>
-		<tr>
-			<td><%= comment.user.first_name %></td>
-			<td><%= comment.updated_at %></td>
-			<td><%= comment.body %></td>
-			<td><%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %></td>
-			<td><%= link_to "upvote", like_comment_path(comment), method: :put %></td>
-			<td><%= link_to "downvote", dislike_comment_path(comment), method: :put %></td>
-			<td><%= comment.score %></td>
-		</tr>
-	</thead>
-	<tbody>
-	</tbody>
-
-
+<%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %>
+<div class="panel-body"><%= comment.body %></div>
+<div class="panel-body">Created by<%= link_to comment.user.username, comment.user %>
+<%= time_ago_in_words(comment.updated_at) %>ago</div></div>
+<%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i>'.html_safe, like_comment_path(comment), method: :put %>
+<%= comment.score %>
+<%= link_to '<i class="glyphicon glyphicon-thumbs-down"></i>'.html_safe, dislike_comment_path(comment), method: :put %>
 
 </div>
-</table>
-
-	<%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %>
-	 <div class="panel-body"><%= comment.body %></div>
-	<div class="panel-body">Created by<%= link_to comment.user.username, comment.user %>
-	<%= time_ago_in_words(comment.updated_at) %>ago</div></div></div>
-	
-
