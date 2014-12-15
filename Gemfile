@@ -4,6 +4,8 @@ gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 
+ruby '2.1.2'
+
 gem 'bcrypt', '3.1.9'
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
@@ -44,7 +46,7 @@ gem 'rails_12factor'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
