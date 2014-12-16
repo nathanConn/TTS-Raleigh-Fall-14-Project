@@ -18,8 +18,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host }
-  :aws_access_key_id     => ENV['AKIAJKSCQBXRI5E3YZNQ'],
-  :aws_secret_access_key => ENV['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']
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
