@@ -1,6 +1,11 @@
 <div class="comment" id="<%= "comment-#{comment.id}" %>">
-	<%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %>
-	 <div class="panel-body"><%= comment.body %></div>
-	<div class="panel-body">Created by <%= link_to comment.user.username, comment.user %>
-	<%= time_ago_in_words(comment.updated_at) %>ago</div></div></div>
-	
+
+<%= link_to "x", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %>
+<div class="panel-body"><%= comment.body %></div>
+<div class="panel-body">Created by<%= link_to comment.user.username, comment.user %>
+<%= time_ago_in_words(comment.updated_at) %>ago</div></div>
+<%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i>'.html_safe, like_comment_path(comment), method: :put %>
+<%= comment.score %>
+<%= link_to '<i class="glyphicon glyphicon-thumbs-down"></i>'.html_safe, dislike_comment_path(comment), method: :put %>
+
+</div>

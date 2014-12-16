@@ -8,15 +8,15 @@ class User < ActiveRecord::Base
     mount_uploader :picture, PictureUploader
     validate  :picture_size
 
-
 	  has_one :user
     has_many :posts, dependent: :destroy
     has_many :comments
 
+    acts_as_voter
+
 
 
 	before_save {self.email = email.downcase}
-	validates :username, presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
 	validates :last_name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX= /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

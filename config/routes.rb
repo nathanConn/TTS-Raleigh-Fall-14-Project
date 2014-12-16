@@ -23,7 +23,13 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   resources :posts 
-  resources :comments, :only => [:create, :destroy]
+  resources :comments, :only => [:create, :destroy] do 
+    member do 
+      put "like", to: 'votes#upvote'
+      put "dislike", to: 'votes#downvote'
+    end
+  end
+
   resources :users
 
   resources :search
