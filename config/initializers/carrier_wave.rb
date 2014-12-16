@@ -6,6 +6,6 @@ if Rails.env.production?
       :aws_access_key_id     => ENV['AKIAJKSCQBXRI5E3YZNQ'],
       :aws_secret_access_key => ENV['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']
     }
-    config.fog_directory     =  ENV['S3_BUCKET']
+    config.fog_directory     =  ENV['ttsstack']
   end
 end
