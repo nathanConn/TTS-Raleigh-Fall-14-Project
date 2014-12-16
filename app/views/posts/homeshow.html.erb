@@ -22,7 +22,7 @@
 </div>
     <div class="panel-body"><%= render partial: "users/picture", locals: {user: post.user} %>
       Created by <%= link_to post.user.username, post.user %>
-    <%= time_ago_in_words(post.created_at) %> ago. | 
+    <%= time_ago_in_words(post.created_at) %> ago. | <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
   </div>
 </div>
         
