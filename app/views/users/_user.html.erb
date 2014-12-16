@@ -1,6 +1,6 @@
 <li><%= image_tag user.picture.url :thumb if user.picture? %>
  </li>
-  <
-     <li><%= link_to user.first_name, user %> | % if current_user.administrator? && !current_user?(user) %><%= link_to "delete", user, method: :delete%>
+  
+     <li><%= link_to user.first_name, user %> | <% if current_user.administrator? && !current_user?(user) %><%= link_to "delete", user, method: :delete %>
      </li>
   <% end %>
