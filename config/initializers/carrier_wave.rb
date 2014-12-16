@@ -4,7 +4,7 @@ if Rails.env.production?
       # Configuration for Amazon S3
       :provider              => 'AWS',
       :aws_access_key_id     => ENV['AKIAJKSCQBXRI5E3YZNQ'],
-      :aws_secret_access_key => ENV['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']
+      :aws_secret_access_key => ENV['gVX+8GiJxYHpseQKBDuM12CzVV9r6DNsws1kSmo']
     }
     config.fog_directory     =  ENV['ttsstack']
   end
